@@ -23,7 +23,7 @@ const DashboardCard = ({ title, count, icon }: DashboardCardProps) => {
               size={56}
             />
           )}
-          <h3 className="text-3xl font-semibold text-slate-500 dark:text-slate-200">
+          <h3 className="text-2xl font-semibold text-slate-500 dark:text-slate-200">
             {count || 0}
           </h3>
         </div>
