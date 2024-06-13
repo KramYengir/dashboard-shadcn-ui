@@ -6,10 +6,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Navbar />
-      <div className=" max-w-screen-xl mx-auto flex">
-        <div className="hidden md:block min-h-[100vh]">
-          <Sidebar />
-        </div>
+      <div className="relative max-w-screen-xl mx-auto flex">
+        <Sidebar />
+
         <main className="flex-1 p-5">{children}</main>
       </div>
     </>
