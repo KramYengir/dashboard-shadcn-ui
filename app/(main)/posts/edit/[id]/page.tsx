@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import data from "@/data/analytics";
+import { useToast } from "@/components/ui/use-toast";
 
 interface EditPostPageProps {
   params: {
@@ -35,6 +36,7 @@ const schema = z.object({
 const EditPostPage = ({ params }: EditPostPageProps) => {
   const { id } = params;
   const post = posts.find((post) => post.id == id);
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
@@ -42,7 +44,10 @@ const EditPostPage = ({ params }: EditPostPageProps) => {
   });
 
   const handleSubmit = (data: z.infer<typeof schema>) => {
-    console.log(data);
+    toast({
+      title: "Post updated successfully",
+      description: `Updated by ${post?.author}`,
+    });
   };
 
   return (
